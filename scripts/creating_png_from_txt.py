@@ -26,8 +26,6 @@ first_line, second_line = None, None
 with open(sys.argv[1], 'r') as f:
     first_line = f.readline()
     second_line = f.readline()
-    print(first_line)
-    print(second_line)
 
 # initialize RGB image
 image = np.zeros((int(second_line),int(first_line),3), dtype="uint8")
@@ -47,7 +45,6 @@ for path in sys.argv:
             split_line = line.split("#")
             split_line = [float(i) for i in split_line]
             matrix.append(split_line)
-            print(split_line)
             print(matrix)
 
         for i in range (0, int(second_line)):
@@ -61,7 +58,14 @@ for path in sys.argv:
 
         counter += 1
 
+# RGB
 timestr = time.strftime("%Y%m%d-%H%M%S")
 cv2.imwrite(rospack.get_path("grid_map_to_image")+"/data/image_"+timestr+".png", image)
 cv2.imshow("image", image);
+cv2.waitKey(5);
+
+# grayscale
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+cv2.imwrite(rospack.get_path("grid_map_to_image")+"/data/gray_image_"+timestr+".png", gray)
+cv2.imshow("gray", gray);
 cv2.waitKey(5);
