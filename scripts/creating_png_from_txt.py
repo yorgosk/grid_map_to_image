@@ -45,13 +45,18 @@ for path in sys.argv:
             split_line = line.split("#")
             split_line = [float(i) for i in split_line]
             matrix.append(split_line)
-            print(matrix)
+            # print(matrix)
 
+        # test = 0
         for i in range (0, int(second_line)):
+            # if counter == test:
+            #     continue
             for j in range (0, int(first_line)):
                 if not math.isnan(matrix[i][j]):
                     # RGB
                     image[i,j,counter] = 255*matrix[i][j]
+                    # if counter == test+1:
+                    #     image[i,j,counter-1] = 255*matrix[i][j]
                 else:
                     # RGB
                     image[i,j,counter] = 0
