@@ -1,0 +1,6 @@
+<launch>
+
+  <!-- Launch the grid map to image node -->
+  <node pkg="grid_map_to_image" type="grid_map_to_image" name="grid_map_to_image" output="screen" />
+
+</launch>
