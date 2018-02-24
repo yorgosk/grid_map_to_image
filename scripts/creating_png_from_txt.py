@@ -63,6 +63,8 @@ for path in sys.argv:
 
         counter += 1
 
+    f.close()
+
 # RGB
 timestr = time.strftime("%Y%m%d-%H%M%S")
 cv2.imwrite(rospack.get_path("grid_map_to_image")+"/data/image_"+timestr+".png", image)
